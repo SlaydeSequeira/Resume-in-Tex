@@ -1,0 +1,239 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % separation between body and page edge from the top
+    bottom=2 cm, % separation between body and page edge from the bottom
+    left=2 cm, % separation between body and page edge from the left
+    right=2 cm, % separation between body and page edge from the right
+    footskip=1.0 cm, % separation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage[explicit]{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed-width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Slayde Sequeira's CV},
+    pdfauthor={Slayde Sequeira},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page break right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage[default, type1]{sourcesanspro} 
+
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column separation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Slayde Sequeira - Page \thepage{} of \pageref*{LastPage}}
+}{}{}
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{
+    \needspace{4\baselineskip}
+    \Large\color{primaryColor}
+}{
+}{
+}{
+    \textbf{#1}\hspace{0.15cm}\titlerule[0.8pt]\hspace{-0.1cm}
+}[]
+
+\titlespacing{\section}{
+    -1pt
+}{
+    0.3 cm
+}{
+    0.2 cm
+}
+
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{0.2 cm}{0.2 cm}
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.8 cm} % Adjust this width to align the date
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\color{primaryColor}\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\newcommand{\placelastupdatedtext}{
+  \AddToShipoutPictureFG*{
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{}
+    }}}%
+  }%
+}
+
+\begin{document}
+
+\placelastupdatedtext
+\begin{header}
+    \fontsize{30 pt}{30 pt}
+    \textbf{Slayde Sequeira}
+
+    \vspace{0.3 cm}
+
+    \normalsize
+    \mbox{{\footnotesize\faMapMarker*}\hspace*{0.13cm}Mumbai, India}%
+    \kern 0.25 cm%
+    \mbox{\hrefWithoutArrow{slaydes13@gmail.com}{{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}}}%
+    \kern 0.25 cm%
+    \mbox{\hrefWithoutArrow{ph no:+91-8097276899}{{\footnotesize\faPhone*}\hspace*{0.13cm}}}%
+    \kern 0.25 cm}
+        \vspace{0.1 cm}
+    \mbox{\hrefWithoutArrow{https://linkedin.com/in/slayde-sequeira-062660221}{{\footnotesize\faLinkedinIn}\hspace*{0.13cm}}}%
+    \kern 0.25 cm%
+    \mbox{\hrefWithoutArrow{https://github.com/SlaydeSequeira}{{\footnotesize\faGithub}\hspace*{0.13cm}}}%
+\end{header}
+
+\vspace{0.5 cm}
+
+\section{Summary}
+I am a Computer Engineering student passionate about app development, creating user-friendly digital experiences. Seeking opportunities to contribute my skills and creativity to dynamic software engineering projects.
+
+\section{Education}
+\begin{twocolentry}{May 2021 - May 2025}
+    \textbf{Fr. Conceicao Rodrigues College of Engineering (Honors in Data Science)}\\
+    Bachelor in Computer Engineering\\
+    CGPA: 8.99 (6 Semesters)
+\end{twocolentry}
+
+\section{Internship Experience}
+\begin{twocolentry}{}
+    \textbf{Svirtz Technologies Pvt Ltd}
+\end{twocolentry}
+\begin{twocolentry}{1st Oct - 30th Dec 2023}
+    \textbf{Web and App Developer Intern}\\
+    Developed a native Android application for seamless video conferencing, integrated with pre-existing website functionalities.\\
+    \textbf{Tech Stack:} Native Java, XML, Node.js, MySQL
+\end{twocolentry}
+\begin{twocolentry}{1st April - 30th May 2024}
+    \textbf{Web and App Developer Intern}\\
+    Developed a web application utilizing Spring Boot for backend and React for frontend, enabling
+scraping of bond data from various websites and displaying it on the company's website. \\
+    \textbf{Tech Stack:} React, Springboot
+\end{twocolentry}
+
+\begin{twocolentry}{10th Dec - 31st Mar 2024}
+    \textbf{DigiHelic Solutions Pvt Ltd}\\
+    \textbf{Web Developer Intern}\\
+    Built a user-centric immigration website with task management, document storage, and real-time updates to streamline processes.\\
+    \textbf{Tech Stack:} Next.js, Node.js, Express, MongoDB, Firebase
+\end{twocolentry}
+
+\section{Projects}
+\begin{twocolentry}{May 2023 - Apr 2024}
+    \textbf{Smart Bin+}\\
+    Developed a smart waste management system integrating IoT and machine learning for responsible disposal with mobile app and cloud features.\\
+    \textbf{Tech Stack:} Native Java, XML, Firebase, Node.js, IoT, Machine Learning
+\end{twocolentry}
+
+\begin{twocolentry}{Jan 2023 - Mar 2023}
+    \textbf{College Management System}\\
+    A responsive web platform for automating exam schedules, grading, and attendance tracking in universities.\\
+    \textbf{Tech Stack:} React.js, Firebase, Node.js
+\end{twocolentry}
+
+\section{Co-curricular Activities}
+
+
+\begin{twocolentry}{2023-2024}
+    \textbf{CSI CRCE Technical Head}\\
+    Managed multiple tech events and hackathons as the Senior Technical Head of CSI CRCE.
+\end{twocolentry}
+\begin{twocolentry}{2023-2024}
+    \textbf{Computer Department Social Media head at CRCE}\\
+    Managed social media handles of the Computer Department.
+\end{twocolentry}
+\section{Achievements}
+\begin{onecolentry}
+    \textbf{First Place Sun Hacks 2024 International Hackathon}\\
+    \textbf{First Place Ingenium 2.0 Hackathon}\\
+    \textbf{2nd Place Techvista Coding Contest}\\
+    \textbf{3rd Place Algoholics 2.0 Coding Contest}\\
+    \textbf{Bit n Build 2024 Finalist}
+\end{onecolentry}
+\section{Skills}
+
+\textbf{Android Development:} Java, Kotlin, XML, Flutter (basic) \
+
+\textbf{Web Development:} Next.js, React, HTML, CSS, JavaScript \
+
+\textbf{Database:} MongoDB, SQL, Firebase \
+
+\textbf{Backend:} Node.js, Express, Django, Flask \
+
+\textbf{Cloud Services:} GCP, AWS
+
+
+\end{document}
