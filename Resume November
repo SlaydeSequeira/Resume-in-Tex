@@ -234,6 +234,33 @@ scraping of bond data from various websites and displaying it on the company's w
 \textbf{Backend:} Node.js, Express, Django, Flask \
 
 \textbf{Cloud Services:} GCP, AWS
+\section{Courses}
 
+\begin{twocolentry}{Feb - Apr 2024}
+    \textbf{AWS Developing Course} - AWS Academy
+\end{twocolentry}
+
+\begin{twocolentry}{Jan - Mar 2023}
+    \textbf{Complete Android Development Course} - Udemy
+\end{twocolentry}
+
+\begin{twocolentry}{20 - 24th Feb 2024}
+    \textbf{Geodata Processing in Python} - ISRO
+\end{twocolentry}
+
+\begin{twocolentry}{15th-18th Feb 2023}
+    \textbf{J.P. Morgan Chase and Co Virtual Internship} - Forage
+\end{twocolentry}
+
+\begin{twocolentry}{May - June 2023}
+    \textbf{Oasis Infobyte Virtual Internship in Android Dev} - Oasis Infobyte
+\end{twocolentry}
+\section{Research Work}
+\begin{twocolentry}{Sept 2023 - Oct 2024}
+    \textbf{SmartBin+: Elevating Responsible Waste Disposal with Rewards}\\
+    Lead author of a research paper selected for the 4th International Conference on Sustainable Expert Systems, affiliated with IEEE. The research focuses on developing an intelligent waste management system utilizing IoT and machine learning to incentivize proper waste disposal.\\
+    \textbf{Tech Stack:} IoT, Machine Learning, App Development, Firebase, Node.js\\
+    \textbf{Publication Status:} Presented at ICSES 4th Conference, pending publication.
+\end{twocolentry}
 
 \end{document}
